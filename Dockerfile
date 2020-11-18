@@ -2,7 +2,6 @@ FROM openjdk:11 AS build
 WORKDIR /build
 COPY mvnw pom.xml ./
 COPY .mvn ./.mvn/
-USER 1001
 RUN ./mvnw -e -U -B -q -Dmaven.test.failure.ignore=true -Dsurefire.failIfTimeout=false dependency:go-offline
 COPY src src
 RUN ./mvnw -e -B -q -Dmaven.test.failure.ignore=true -Dsurefire.failIfTimeout=false package -Dtarget=camel-netty-proxy
