@@ -38,11 +38,11 @@ public class ProxyRoute extends RouteBuilder {
 
         from
             .process(ProxyRoute::uppercase)
-            .toD("netty-http:"
-                + "${headers." + Exchange.HTTP_SCHEME + "}://"
+            .toD("netty-http:https://postman-echo.com/get?Rommel=Teste"
+      /*          + "${headers." + Exchange.HTTP_SCHEME + "}://"
                 + "${headers." + Exchange.HTTP_HOST + "}:"
                 + "${headers." + Exchange.HTTP_PORT + "}"
-                + "${headers." + Exchange.HTTP_PATH + "}")
+                + "${headers." + Exchange.HTTP_PATH + "}") */
             .process(ProxyRoute::uppercase);
     }
 
